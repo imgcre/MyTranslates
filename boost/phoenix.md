@@ -1,5 +1,6 @@
 ## 简介
 ![avatar](https://www.boost.org/doc/libs/1_68_0/libs/phoenix/doc/html/images/banner.png)
+
 Phoenix库在c++中使能了3函数式编程(FP)技术，比如高阶函数，$\lambda$，科里化(并行函数应用)和懒惰求值。Phoenix侧重于实用性，而非纯粹性、优雅性以及严格遵守FP原则。
 FP是一个与具体语言无关的编程学科，能应用在许多编程语言中。在c++中，已经有FP技术被应用的例子。c++已经实现了FP中最重要的部分。c++是个多模式的编程语言，它不仅仅是过程式的，也不仅仅是面向对象的。在标准c++库中，STL中的闭包已经能瞥见FP了。显而易见STL的作者知道并且实践了FP。在近期，我们能确定FP将慢慢成为主流。
 
@@ -66,7 +67,7 @@ operator()(T0 &t0, T1 &t1) const
 }
 ```
 ### result_of::actor
-为了`actor::operator()`的对称性，有个具体可用的用来表示actor返回值类型的元函数，称为`result_of::actor`。此元函数允许我们直接指定通过`actor::operator()`函数的参数的类型。一下时典型的接受两个参数的`actor_result`
+为了`actor::operator()`的对称性，有个具体可用的用来表示actor返回值类型的元函数，称为`result_of::actor`。此元函数允许我们直接指定通过`actor::operator()`函数的参数的类型。以下是典型的接受两个参数的`actor_result`
 ```C++
 namespace result_of
 {

@@ -11,14 +11,14 @@ FP是一个与具体语言无关的编程学科，能应用在许多编程语言
 附加地，存在函数调用操作符接受常量和非常量的引用参数的排列组合。这些操作符为元数N<=`BOOST_PHOENIX_PERFECT_FORWARD_LIMIT`（默认是3）的actor创建。
 ### 上下文
 在actor函数调用的时候，在调用计算函数之前，acotr创建了一个上下文，这个上下文包括一个环境和Action部分。这些包括了所有计算给定表达式的必要信息。
-| 表达式 | 语义 
-| :-- | :--: 
-| `result_of::context<Env, Actions>::type` | 上下文的类型
-| `context(e, a)` | 一个包含环境e和actions a的上下文
-| `result_of::env<Context>::type` | 所包含环境的类型
-| `env(ctx)` | 环境
-| `result_of::actions<Context>::type` | 所包含action的类型
-| `actions(ctx)` | action
+| 表达式 | 语义 |
+| :-- | :--: |
+| `result_of::context<Env, Actions>::type` | 上下文的类型 |
+| `context(e, a)` | 一个包含环境e和actions a的上下文 |
+| `result_of::env<Context>::type` | 所包含环境的类型 |
+| `env(ctx)` | 环境 |
+| `result_of::actions<Context>::type` | 所包含action的类型 |
+| `actions(ctx)` | action |
 ### 环境
 环境是个随机访问序列
 通过actor的调用操作符的参数被搜集在了环境内部

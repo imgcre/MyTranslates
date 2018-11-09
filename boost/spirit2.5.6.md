@@ -31,8 +31,8 @@ expression  ::= term (('+' term) | ('-' term))*
 可以使用`Spirit.Qi`子库中的工具书写近似的语法，像如下代码片段一样
 ``` c++
 group       = '(' >> expression >> ')';
-factor      = integer | group
-term        = factor >> *(('*' >> factor) | ('/' >> factor))
+factor      = integer | group;
+term        = factor >> *(('*' >> factor) | ('/' >> factor));
 expression  = term >> *(('+' >> term) | ('-' >> term));
 ```
 通过表达式模板的魔法，这是完全有效的并且是可执行的c++代码。产生式`expression`实际上是一个包含成员函数`parse`(*????*)的对象。这是一个计算器，我们现在可以通过跳过类型声明和由`actor`调用的`integer`式来简化具体代码。现在在文法中的指定的产生式`expression`，通常情况下称为`start`符号，能够识别像下面的这些输入

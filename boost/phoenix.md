@@ -23,7 +23,7 @@ FP是一个与具体语言无关的编程学科，能应用在许多编程语言
 环境是个随机访问序列
 通过actor的调用操作符的参数被搜集在了环境内部
 在库的其他部分，比如`scope`模块拓展了环境的概念来包含局部变量等信息。
-## Actions
+### Actions
 Actions在Phoenix中负责给一个实际的表达式一个特定的行为。在Phoenix表达式树遍历时这些actions被调用，当匹配到一个特定的语法规则。
 ```C++
 struct actions
@@ -44,3 +44,38 @@ struct default_actions
 };
 ```
 更多关于如何使用`default_actions`和如何加入自定义计算过程的信息请见[more on actions]()
+### 计算
+```C++
+struct evaluator
+{
+    template <typename Expr, typename Context>
+    unspecified operator()(Expr &, Context &);
+};
+evaluator const eval = {};
+```
+Phoenix表达式的计算在对`evaluator`进行调用后开始。
+`evaluator`在上下文被建立后被`actor`函数操作符重载调用。比如，这里是个典型的`actor::operator()`，它接受两个参数：
+```C++
+template <typename T0, typename T1>
+typename result_of::actor<Expr, T0 &, T1 &>：：type
+operator()(T0 &t0, T1 &t1) const
+{
+    fusion::vector2<T0 &, T1 &> env(t0, t1);
+
+    return eval(*this, context(env, default_actions()));
+}
+```
+### result_of::actor
+为了`actor::operator()`的对称性，有个具体可用的用来表示actor返回值类型的元函数，称为`result_of::actor`。此元函数允许我们直接指定通过`actor::operator()`函数的参数的类型。一下时典型的接受两个参数的`actor_result`
+```C++
+namespace result_of
+{
+    template <typename Expr, typename T0, typename T1>
+    struct actor
+    {
+        typedef fusion::vector2<T0, T1> env_type;
+        typedef typename result_of::context<env_type, default_actions>::type ctx_type;
+        typedef typename boost::result_of<evaluator(Expr const&, ctx_type)>::type type;
+    };
+}
+```

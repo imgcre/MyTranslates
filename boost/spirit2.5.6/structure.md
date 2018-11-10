@@ -1,6 +1,6 @@
 # 目录结构
 ## include
-Spirit是个只有头文件的库，不需要链接其他的库。本节文档给出了Spirit头文件的目录结构
+Spirit是个只有头文件的库，不需要链接其他的库。本节文档给出了Spirit头文件的目录结构  
 Spirit包括5个子库，加上一个'support'模块，里面包含通用的支持类。
 - Classic
 - Qi
@@ -20,8 +20,8 @@ BOOST_ROOT/boost/spirit
 [iterator]  [meta]              [phoenix]   [repository]
 [symbols]   [tree]              [utility]
 ```
-这其中有一些v1.8老版本的目录现在被*贬低*了，他们是actor, attribute, core, debug, dynamic, error_handling, iterator, meta, phoenix, symbols, tree和utility，不能保证这些目录在未来版本的Spirit中会被提供。请注意，这些目录只是用来向后兼容的。
-每个目录（除了include, home和repository）有一个相应的头文件，它包含了此目录下包含的相关文件的引用。比如，`boost/spirit/actor.hpp`头文件引用了所有在目录`boost/spirit/actor`下的相关文件。
+这其中有一些v1.8老版本的目录现在被*贬低*了，他们是actor, attribute, core, debug, dynamic, error_handling, iterator, meta, phoenix, symbols, tree和utility，不能保证这些目录在未来版本的Spirit中会被提供。请注意，这些目录只是用来向后兼容的。  
+每个目录（除了include, home和repository）有一个相应的头文件，它包含了此目录下包含的相关文件的引用。比如，`boost/spirit/actor.hpp`头文件引用了所有在目录`boost/spirit/actor`下的相关文件。  
 你能通过检查version文件来区别不同版本的Spirit
 ```bash
 <boost/spirit/version.hpp>
@@ -66,7 +66,7 @@ include目录为`BOOST_ROOT/boost/spirit/include`，它是个特殊的扁平的�
 - `boost/spirit/home/qi.hpp`
 - `boost/spirit/home/support.hpp`
 
-多种子库包含文件可以能在每个包含特定子库的子目录下找到，子库的包含结构在他们相应的文档中有描述。为了一致性，每个子库都遵循如上的方案。
+多种子库包含文件可以能在每个包含特定子库的子目录下找到，子库的包含结构在他们相应的文档中有描述。为了一致性，每个子库都遵循如上的方案。  
 **为了简单起见，你需要使用在`boost/spirit/include`中的扁平的包含路径。**
-子目录`boost/spirit/repository`不属于主Spirit distribution。
-更多信息请见boost官方
+子目录`boost/spirit/repository`不属于主Spirit distribution。  
+更多信息请见boost官方  

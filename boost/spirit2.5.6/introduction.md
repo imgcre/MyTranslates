@@ -80,9 +80,9 @@ for (std::vector<int>::iterator it = v.begin(); it != end; ++it)
 我们会在此文档后看到如何避免输出末尾的','
 大体上，这语法和`Spirit.Qi`类似，我们用`<<`操作符来进行输出合并。由于它沿袭了在标准I/O流中的习俗，这应该很容易理解。  
 另一个在`Spirit.Karma`中的重要特性允许你完全将来自输出格式的数据类型解耦。你能在不同的数据类型上使用相同的输出格式，因为他们在概念上一致。下面的表格给出了一些相关的例子：  
-| 数据类型 | 描述 |  
-| --- | --- |  
-| `int i[4]` | c风格的数组 |  
-| `std::vector<int>` | 标准向量 |  
-| `std::list<int>` | 标准列表 |  
-| `boost::array<long, 20>` | boost数组 |  
+| 数据类型 | 描述 |
+| --- | --- |
+| `int i[4]` | c风格的数组 |
+| `std::vector<int>` | 标准向量 |
+| `std::list<int>` | 标准列表 |
+| `boost::array<long, 20>` | boost数组 |

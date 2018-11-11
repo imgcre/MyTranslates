@@ -5,4 +5,4 @@
 历史上，PEG只用来为解析器描述语法（所以叫这个名字），在Spirit中，我们也同样为输出生成使用非常相似的记号。在这里描述的所有概念几乎都能在`Spirit.Qi`的解析器和`Spirit.Karma`的生成器中被同样地应用。  
 ### 元素
 所有语法图含有一个进入点和一个退出点，箭头链接所有从进入点到退出点的可能的语法路径  
-![进入点/退出点](images/start_stop.png)  
+<div align=center>![进入点/退出点](images/start_stop.png)  

@@ -13,4 +13,4 @@ std::string str;
 std::back_insert_iterator<std::string> out(str);
 karma::generate(out, int_, value);   //str == "123"
 ```
-其他的原生操作符组件有其他的直观属性类型，和相应的解析器组件类似。比如`ascii::char_`生成器有一个`char`作为消费属性。为了康完整可用的可用解析器和生成器的原生操作符和他们的属性类型，可以看`Qi解析器`和`Karma生成器`章节。  
+其他的原生操作符组件有其他的直观属性类型，和相应的解析器组件类似。比如`ascii::char_`生成器有一个`char`作为消费属性。为了康完整可用的可用解析器和生成器的原生操作符和他们的属性类型，可以看`Qi解析器`和`Karma生成器`章节。(*TODO*)  

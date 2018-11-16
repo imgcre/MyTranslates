@@ -28,7 +28,7 @@
 std::string input("1.0 2.0");
 std::string::iterator strbegin = input.begin();
 std::pair<double, double> p;
-qi::parase_parse(strbegin, input.end(),
+qi::phrase_parse(strbegin, input.end(),
     qi::double_ >> qi::double_,     //解析器文法
     qi::space,                      //定界符文法
     p);                             //用来在解析中填充的属性
@@ -47,7 +47,7 @@ karma::generate_delimited(out,
 > 只对序列有效：`Spirit.Qi`和`Spirit.Karma`公开了一系列主要用于序列的API函数。和`scanf`和`printf`之类的函数非常相似，这些函数允许分别传递序列中的每个元素。使用相应的Qi的`parse`或者Karma的`generate`函数，上面的表达式可以写成这样：  
 ``` c++
 double d1 = 0.0, d2 = 0.0;
-qi::pharse_parse(begin, end, qi::double_ >> qi::double_, qi::space_, d1, d2);
+qi::phrase_parse(begin, end, qi::double_ >> qi::double_, qi::space_, d1, d2);
 karma::generate_delimited(out, karma::double_ << karma::double_, karma::space, d1, d2);
 ```
 其中第一个属性用于第一个`double_`，第二个属性用于第二个`double_`。  
